@@ -5,7 +5,7 @@ namespace Customer.WebApi.Controllers.V1
 {
     /// <summary>
     /// Returns the authenticated caller's identity. Used to verify JWT authentication
-    /// end to end (PR-Auth). Superseded by richer profile endpoints in later PRs.
+    /// end to end
     /// </summary>
     [Route("api/v1/me")]
     public sealed class MeController : ControllerWithAuthorization
