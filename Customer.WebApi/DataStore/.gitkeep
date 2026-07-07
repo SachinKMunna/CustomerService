@@ -1,0 +1,4 @@
+# DataStore (outbound persistence ports)
+# Interfaces the domain depends on: I{X}DataProvider, I{X}DataProviderInitializer,
+# IDataStoreInitializer, and the Outbox port. Mongo implementations live under
+# Infrastructure/DataStore/Mongo.

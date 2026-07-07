@@ -1,13 +1,9 @@
 <Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Customer.Api/Customer.Api.csproj" />
-    <Project Path="src/Customer.Application/Customer.Application.csproj" />
-    <Project Path="src/Customer.Domain/Customer.Domain.csproj" />
-    <Project Path="src/Customer.Infrastructure/Customer.Infrastructure.csproj" />
-  </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests/Customer.Api.IntegrationTests/Customer.Api.IntegrationTests.csproj" />
-    <Project Path="tests/Customer.Application.Tests/Customer.Application.Tests.csproj" />
-    <Project Path="tests/Customer.Domain.Tests/Customer.Domain.Tests.csproj" />
+    <Project Path="tests/Customer.Tests.Utilities/Customer.Tests.Utilities.csproj" />
+    <Project Path="tests/Customer.Unit.Tests/Customer.Unit.Tests.csproj" />
+    <Project Path="tests/Customer.WebApi.Integration.Tests/Customer.WebApi.Integration.Tests.csproj" />
   </Folder>
+  <Project Path="Customer.Model/Customer.Model.csproj" />
+  <Project Path="Customer.WebApi/Customer.WebApi.csproj" />
 </Solution>

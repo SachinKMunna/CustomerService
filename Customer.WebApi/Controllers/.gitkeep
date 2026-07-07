@@ -1,0 +1,3 @@
+# Controllers (driving adapters)
+# REST controllers, versioned under V1/, with a ControllerWithAuthorization base.
+# Added per feature PR.
