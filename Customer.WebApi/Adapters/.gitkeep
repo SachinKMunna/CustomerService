@@ -1,0 +1,5 @@
+# Adapters / Clients / Consumers / Outbox
+# Adapters: anti-corruption translation of external models to internal.
+# Clients: outbound HTTP clients (e.g. Restaurant Service, PR-4).
+# Consumers: message consumers.
+# Outbox: reliable event publishing (PR-6).

@@ -1,0 +1,4 @@
+# Domain (hexagon core)
+# Business logic: I{X}DomainService interfaces + implementations (use cases), validators,
+# state machines, model factories, and Domain/Model/ domain models.
+# First real content arrives in PR-1 (Register customer).

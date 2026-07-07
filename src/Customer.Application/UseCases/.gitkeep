@@ -1,3 +1,0 @@
-# Use Case Services
-# Implementations of the inbound ports that orchestrate the domain and outbound ports.
-# Added per feature PR — e.g. RegisterCustomerService (PR-1).

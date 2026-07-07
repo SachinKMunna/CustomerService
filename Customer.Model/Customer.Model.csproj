@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>CustomerService.Model</AssemblyName>
+    <RootNamespace>CustomerService.Model</RootNamespace>
+  </PropertyGroup>
+
+</Project>
