@@ -13,11 +13,11 @@ namespace Customer.Component.Tests
         public HealthEndpointTests(CustomerApiFactory factory) => _factory = factory;
 
         [Fact]
-        public async Task Liveness_endpoint_returns_ok()
+        public async Task Health_endpoint_returns_ok()
         {
             var client = _factory.CreateClient();
 
-            var response = await client.GetAsync("/health/live");
+            var response = await client.GetAsync("/health");
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
