@@ -1,0 +1,3 @@
+# Outbound Ports (driven side)
+# Interfaces the core depends on and infrastructure implements — e.g. ICustomerRepository (PR-1),
+# ICartStore (PR-5), IPaymentGateway (PR-8), IOutbox (PR-6).

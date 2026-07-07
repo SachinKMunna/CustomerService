@@ -1,0 +1,3 @@
+# Inbound Ports (driving side)
+# Use-case interfaces the driving adapters (controllers, SignalR, webhooks) call into.
+# Added per feature PR — e.g. IRegisterCustomer (PR-1).
