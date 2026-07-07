@@ -1,7 +1,7 @@
 using System.Net;
 using CustomerService.Tests.Utilities;
 
-namespace CustomerService.WebApi.Integration.Tests
+namespace CustomerService.Component.Tests
 {
     /// <summary>
     /// PR-0 smoke test: the host boots and liveness responds without external dependencies.

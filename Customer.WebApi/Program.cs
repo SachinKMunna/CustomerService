@@ -1,3 +1,4 @@
+using CustomerService.WebApi.Infrastructure.Auth;
 using CustomerService.WebApi.Infrastructure.Bootstrap;
 using CustomerService.WebApi.Swagger;
 using Serilog;
@@ -20,6 +21,7 @@ namespace CustomerService.WebApi
 
             builder.Services
                 .AddServices(settings)
+                .AddJwtAuthentication(settings)
                 .AddApiDocumentation();
             builder.Services.AddControllers();
 
