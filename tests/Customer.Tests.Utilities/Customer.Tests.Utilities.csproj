@@ -11,6 +11,7 @@
 
   <PropertyGroup>
     <RootNamespace>Customer.Tests.Utilities</RootNamespace>
+  <PropertyGroup>
   </PropertyGroup>
 
 </Project>

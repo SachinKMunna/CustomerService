@@ -4,7 +4,7 @@ using MongoDB.Driver;
 namespace Customer.WebApi.Infrastructure.DataStore.Mongo
 {
     /// <summary>
-    /// Thin wrapper over the Mongo database handle. Data providers (added in later PRs)
+    /// Thin wrapper over the Mongo database handle. Data providers
     /// depend on this to obtain their collections.
     /// </summary>
     public sealed class MongoDbContext

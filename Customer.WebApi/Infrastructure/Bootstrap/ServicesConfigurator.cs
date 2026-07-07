@@ -6,7 +6,6 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Registers the service's dependencies (driven adapters) on the DI container.
-    /// Later PRs add their domain services and data providers here.
     /// </summary>
     public static class ServicesConfigurator
     {
@@ -27,7 +26,11 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             services.AddSingleton<MongoDbContext>();
 
             services.AddHealthChecks()
-                .AddCheck<MongoHealthCheck>(MongoHealthCheckName, tags: ["ready"]);
+                .AddMongoDb(
+                    clientFactory: sp => sp.GetRequiredService<IMongoClient>(),
+                    databaseNameFactory: _ => settings.Mongo.Database,
+                    name: MongoHealthCheckName,
+                    tags: ["ready"]);
 
             return services;
         }

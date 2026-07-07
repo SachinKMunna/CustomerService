@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+<<<<<<<< HEAD:tests/Customer.Component.Tests/Customer.Component.Tests.csproj
     <RootNamespace>Customer.Component.Tests</RootNamespace>
+========
+    <RootNamespace>Customer.WebApi.Integration.Tests</RootNamespace>
+>>>>>>>> 41a2601b068bae23383147336469121aec1c85d3:tests/Customer.WebApi.Integration.Tests/Customer.WebApi.Integration.Tests.csproj
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -9,6 +13,7 @@
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.9" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="MongoDB.Driver" Version="3.9.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
   </ItemGroup>

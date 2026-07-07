@@ -2,7 +2,7 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Abstraction over application configuration so the rest of the service does not
-    /// depend on <c>IConfiguration</c> directly (reference pattern: SkyLine/WorkItem).
+    /// depend on <c>IConfiguration</c> directly 
     /// </summary>
     public interface ISettingsProvider
     {

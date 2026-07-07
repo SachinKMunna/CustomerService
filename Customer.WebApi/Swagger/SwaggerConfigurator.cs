@@ -18,7 +18,7 @@ namespace Customer.WebApi.Swagger
                 {
                     Title = "Customer Service API",
                     Version = "v1",
-                    Description = "Customer microservice (hexagonal architecture). PR-0 foundation."
+                    Description = "Customer microservice for e-commerce customer management"
                 });
 
                 var scheme = new OpenApiSecurityScheme
@@ -27,7 +27,6 @@ namespace Customer.WebApi.Swagger
                     Type = SecuritySchemeType.Http,
                     Scheme = "bearer",
                     BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
                     Description = "Enter the JWT token issued by the auth server.",
                     Reference = new OpenApiReference
                     {

@@ -1,8 +1,6 @@
-using System.Text.Json;
+using Customer.Model.Api;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -40,31 +38,10 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             app.UseAuthorization();
             app.MapControllers();
 
-            // Liveness: no dependencies. Readiness: MongoDB ping.
-            app.MapHealthChecks("/health/live", new HealthCheckOptions { Predicate = _ => false });
-            app.MapHealthChecks("/health/ready", new HealthCheckOptions
-            {
-                Predicate = check => check.Tags.Contains("ready"),
-                ResponseWriter = WriteHealthResponse
-            });
+            // Single health route following SLE convention.
+            app.MapHealthChecks(ApiRoutes.Health);
 
             return app;
-        }
-
-        private static Task WriteHealthResponse(HttpContext context, HealthReport report)
-        {
-            context.Response.ContentType = "application/json";
-            var payload = new
-            {
-                status = report.Status.ToString(),
-                checks = report.Entries.Select(e => new
-                {
-                    name = e.Key,
-                    status = e.Value.Status.ToString(),
-                    description = e.Value.Description
-                })
-            };
-            return context.Response.WriteAsync(JsonSerializer.Serialize(payload));
         }
     }
 }
