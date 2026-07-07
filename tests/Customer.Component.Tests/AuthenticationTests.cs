@@ -1,8 +1,8 @@
 using System.Net;
 using System.Net.Http.Headers;
-using CustomerService.Tests.Utilities;
+using Customer.Tests.Utilities;
 
-namespace CustomerService.Component.Tests
+namespace Customer.Component.Tests
 {
     /// <summary>
     /// Verifies JWT bearer authentication end to end against the /api/v1/me endpoint.

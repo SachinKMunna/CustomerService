@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomerService.WebApi.Controllers
+namespace Customer.WebApi.Controllers
 {
     /// <summary>
     /// Base controller that requires an authenticated caller for all actions.

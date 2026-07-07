@@ -1,11 +1,11 @@
 using System.Text;
-using CustomerService.WebApi.Domain.Security;
-using CustomerService.WebApi.Infrastructure.Bootstrap;
+using Customer.WebApi.Domain.Security;
+using Customer.WebApi.Infrastructure.Bootstrap;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CustomerService.WebApi.Infrastructure.Auth
+namespace Customer.WebApi.Infrastructure.Auth
 {
     /// <summary>
     /// Configures JWT bearer authentication and the <see cref="ICurrentCustomer"/> accessor.

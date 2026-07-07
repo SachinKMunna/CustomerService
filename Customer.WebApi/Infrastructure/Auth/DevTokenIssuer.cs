@@ -1,9 +1,9 @@
 using System.Text;
-using CustomerService.WebApi.Infrastructure.Bootstrap;
+using Customer.WebApi.Infrastructure.Bootstrap;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CustomerService.WebApi.Infrastructure.Auth
+namespace Customer.WebApi.Infrastructure.Auth
 {
     /// <summary>
     /// Issues signed JWTs using the service's own symmetric key. Intended for local

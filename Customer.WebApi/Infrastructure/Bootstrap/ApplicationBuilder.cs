@@ -6,7 +6,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace CustomerService.WebApi.Infrastructure.Bootstrap
+namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Configures the HTTP request pipeline and endpoints.

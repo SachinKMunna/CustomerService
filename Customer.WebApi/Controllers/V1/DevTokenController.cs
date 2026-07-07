@@ -1,8 +1,8 @@
-using CustomerService.WebApi.Infrastructure.Auth;
+using Customer.WebApi.Infrastructure.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomerService.WebApi.Controllers.V1
+namespace Customer.WebApi.Controllers.V1
 {
     /// <summary>
     /// Development-only helper that mints a JWT so the API can be tested in Swagger/Postman

@@ -1,7 +1,7 @@
-using CustomerService.WebApi.Domain.Security;
+using Customer.WebApi.Domain.Security;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomerService.WebApi.Controllers.V1
+namespace Customer.WebApi.Controllers.V1
 {
     /// <summary>
     /// Returns the authenticated caller's identity. Used to verify JWT authentication

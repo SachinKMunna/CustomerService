@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CustomerService.Tests.Utilities
+namespace Customer.Tests.Utilities
 {
     /// <summary>
     /// Mints signed JWTs for tests using the shared <see cref="TestAuth"/> values.

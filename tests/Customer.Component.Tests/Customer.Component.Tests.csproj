@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>CustomerService.Component.Tests</RootNamespace>
+    <RootNamespace>Customer.Component.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

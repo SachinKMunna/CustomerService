@@ -1,8 +1,8 @@
 using System.Security.Claims;
-using CustomerService.WebApi.Infrastructure.Auth;
+using Customer.WebApi.Infrastructure.Auth;
 using Microsoft.AspNetCore.Http;
 
-namespace CustomerService.Unit.Tests
+namespace Customer.Unit.Tests
 {
     /// <summary>
     /// Verifies the current-customer accessor reads identity from the HTTP context claims.

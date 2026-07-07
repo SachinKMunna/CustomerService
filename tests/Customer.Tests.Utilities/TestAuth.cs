@@ -1,4 +1,4 @@
-namespace CustomerService.Tests.Utilities
+namespace Customer.Tests.Utilities
 {
     /// <summary>
     /// Fixed JWT values shared between the test host and the token factory so that

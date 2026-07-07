@@ -1,7 +1,7 @@
-using CustomerService.WebApi;
+using Customer.WebApi;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace CustomerService.Tests.Utilities
+namespace Customer.Tests.Utilities
 {
     /// <summary>
     /// Boots the real WebApi host in-memory for component and integration tests.

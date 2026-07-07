@@ -1,8 +1,8 @@
-using CustomerService.WebApi.Infrastructure.DataStore.Mongo;
+using Customer.WebApi.Infrastructure.DataStore.Mongo;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 
-namespace CustomerService.WebApi.Infrastructure.Bootstrap
+namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Registers the service's dependencies (driven adapters) on the DI container.

@@ -1,4 +1,4 @@
-namespace CustomerService.WebApi.Infrastructure.Bootstrap
+namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Abstraction over application configuration so the rest of the service does not

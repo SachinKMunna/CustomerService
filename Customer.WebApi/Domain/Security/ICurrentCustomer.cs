@@ -1,4 +1,4 @@
-namespace CustomerService.WebApi.Domain.Security
+namespace Customer.WebApi.Domain.Security
 {
     /// <summary>
     /// Represents the currently authenticated customer, resolved from the incoming JWT.

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace CustomerService.WebApi.Swagger
+namespace Customer.WebApi.Swagger
 {
     /// <summary>
     /// Configures Swagger/OpenAPI, including the JWT bearer scheme so the

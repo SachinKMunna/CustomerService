@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <RootNamespace>CustomerService.Tests.Utilities</RootNamespace>
+    <RootNamespace>Customer.Tests.Utilities</RootNamespace>
   </PropertyGroup>
 
 </Project>

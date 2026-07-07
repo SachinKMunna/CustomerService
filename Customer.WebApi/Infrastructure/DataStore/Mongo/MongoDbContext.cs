@@ -1,7 +1,7 @@
-using CustomerService.WebApi.Infrastructure.Bootstrap;
+using Customer.WebApi.Infrastructure.Bootstrap;
 using MongoDB.Driver;
 
-namespace CustomerService.WebApi.Infrastructure.DataStore.Mongo
+namespace Customer.WebApi.Infrastructure.DataStore.Mongo
 {
     /// <summary>
     /// Thin wrapper over the Mongo database handle. Data providers (added in later PRs)

@@ -1,6 +1,5 @@
 <Project>
 
-  <!-- Shared properties imported by all projects (reference pattern: SkyLine/WorkItem). -->
   <PropertyGroup>
     <NetTargetFramework>net10.0</NetTargetFramework>
     <TargetFramework>$(NetTargetFramework)</TargetFramework>

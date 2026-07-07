@@ -1,8 +1,8 @@
 using System.Security.Claims;
-using CustomerService.WebApi.Domain.Security;
+using Customer.WebApi.Domain.Security;
 using Microsoft.AspNetCore.Http;
 
-namespace CustomerService.WebApi.Infrastructure.Auth
+namespace Customer.WebApi.Infrastructure.Auth
 {
     /// <summary>
     /// Resolves the current customer from the validated JWT on the HTTP context.

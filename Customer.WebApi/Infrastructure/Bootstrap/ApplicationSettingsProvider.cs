@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace CustomerService.WebApi.Infrastructure.Bootstrap
+namespace Customer.WebApi.Infrastructure.Bootstrap
 {
     /// <summary>
     /// Reads strongly-typed settings from <see cref="IConfiguration"/>.
