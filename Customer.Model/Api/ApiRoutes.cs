@@ -1,7 +1,7 @@
 namespace Customer.Model.Api
 {
     /// <summary>
-    /// Well-known route and documentation constants shared across the API surface.
+    /// Defines the API route constants for customer service endpoints.
     /// </summary>
     public static class ApiRoutes
     {
