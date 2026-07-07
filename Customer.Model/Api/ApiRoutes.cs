@@ -1,4 +1,4 @@
-namespace CustomerService.Model.Api
+namespace Customer.Model.Api
 {
     /// <summary>
     /// Well-known route and documentation constants shared across the API surface.
