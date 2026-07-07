@@ -1,11 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-<<<<<<<< HEAD:tests/Customer.Component.Tests/Customer.Component.Tests.csproj
     <RootNamespace>Customer.Component.Tests</RootNamespace>
-========
-    <RootNamespace>Customer.WebApi.Integration.Tests</RootNamespace>
->>>>>>>> 41a2601b068bae23383147336469121aec1c85d3:tests/Customer.WebApi.Integration.Tests/Customer.WebApi.Integration.Tests.csproj
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

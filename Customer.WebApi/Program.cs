@@ -1,3 +1,4 @@
+using Customer.WebApi.Infrastructure.Auth;
 using Customer.WebApi.Infrastructure.Bootstrap;
 using Customer.WebApi.Swagger;
 using Serilog;
