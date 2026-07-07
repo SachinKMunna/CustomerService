@@ -6,11 +6,5 @@ namespace Customer.Model.Api
     public static class ApiRoutes
     {
         public const string ApiBase = "/api";
-
-        public static class Health
-        {
-            public const string Live = "/health/live";
-            public const string Ready = "/health/ready";
-        }
     }
 }

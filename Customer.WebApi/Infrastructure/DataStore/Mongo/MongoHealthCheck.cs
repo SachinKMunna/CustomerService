@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using MongoDB.Bson;
 
-namespace CustomerService.WebApi.Infrastructure.DataStore.Mongo
+namespace Customer.WebApi.Infrastructure.DataStore.Mongo
 {
     /// <summary>
     /// Health check that pings MongoDB so /health/ready reflects real database connectivity.

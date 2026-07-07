@@ -1,8 +1,8 @@
-using CustomerService.WebApi.Infrastructure.Bootstrap;
-using CustomerService.WebApi.Swagger;
+using Customer.WebApi.Infrastructure.Bootstrap;
+using Customer.WebApi.Swagger;
 using Serilog;
 
-namespace CustomerService.WebApi
+namespace Customer.WebApi
 {
     /// <summary>
     /// Application entry point and composition root.

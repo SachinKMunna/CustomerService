@@ -1,7 +1,7 @@
-using CustomerService.WebApi.Infrastructure.Bootstrap;
+using Customer.WebApi.Infrastructure.Bootstrap;
 using Microsoft.Extensions.Configuration;
 
-namespace CustomerService.Unit.Tests
+namespace Customer.Unit.Tests
 {
     /// <summary>
     /// Verifies configuration binding through <see cref="ApplicationSettingsProvider"/>.

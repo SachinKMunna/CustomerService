@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>CustomerService.WebApi.Integration.Tests</RootNamespace>
+    <RootNamespace>Customer.WebApi.Integration.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
