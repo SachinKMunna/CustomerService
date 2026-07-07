@@ -6,8 +6,7 @@ using MongoDB.Driver;
 namespace Customer.WebApi.Integration.Tests
 {
     /// <summary>
-    /// Component tests for the health endpoints. Verifies liveness, readiness success,
-    /// and MongoDB failure conditions.
+    /// Component tests for the health endpoint.
     /// </summary>
     public class HealthEndpointTests : IClassFixture<CustomerApiFactory>
     {
@@ -16,11 +15,11 @@ namespace Customer.WebApi.Integration.Tests
         public HealthEndpointTests(CustomerApiFactory factory) => _factory = factory;
 
         [Fact]
-        public async Task Liveness_endpoint_returns_ok_and_healthy()
+        public async Task Health_endpoint_returns_ok_when_mongo_is_reachable()
         {
             var client = _factory.CreateClient();
 
-            var response = await client.GetAsync("/health/live");
+            var response = await client.GetAsync("/health");
             var body = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -28,22 +27,8 @@ namespace Customer.WebApi.Integration.Tests
         }
 
         [Fact]
-        public async Task Readiness_endpoint_returns_ok_when_mongo_is_reachable()
+        public async Task Health_endpoint_returns_unhealthy_when_mongo_is_unreachable()
         {
-            var client = _factory.CreateClient();
-
-            var response = await client.GetAsync("/health/ready");
-            var body = await response.Content.ReadAsStringAsync();
-
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal("Healthy", body);
-        }
-
-        [Fact]
-        public async Task Readiness_endpoint_returns_unhealthy_when_mongo_is_unreachable()
-        {
-            // Override IMongoClient with a client pointing to a port that isn't listening.
-            // ServerSelectionTimeout is set to 200ms so the test fails fast.
             var factory = _factory.WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
@@ -65,7 +50,7 @@ namespace Customer.WebApi.Integration.Tests
 
             var client = factory.CreateClient();
 
-            var response = await client.GetAsync("/health/ready");
+            var response = await client.GetAsync("/health");
             var body = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);

@@ -1,3 +1,4 @@
+using Customer.Model.Api;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
@@ -37,12 +38,8 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             app.UseAuthorization();
             app.MapControllers();
 
-            // Liveness: no dependencies. Readiness: MongoDB ping.
-            app.MapHealthChecks("/health/live", new HealthCheckOptions { Predicate = _ => false });
-            app.MapHealthChecks("/health/ready", new HealthCheckOptions
-            {
-                Predicate = check => check.Tags.Contains("ready")
-            });
+            // Single health route following SLE convention.
+            app.MapHealthChecks(ApiRoutes.Health);
 
             return app;
         }
