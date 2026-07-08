@@ -1,4 +1,5 @@
 using Customer.WebApi.DataStore;
+using Customer.WebApi.Domain.Services;
 using Customer.WebApi.Infrastructure.DataStore.Mongo;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -26,6 +27,7 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             services.AddSingleton<MongoDbContext>();
 
             services.AddScoped<ICustomerDataProvider, MongoCustomerDataProvider>();
+            services.AddScoped<ICustomerService, CustomerService>();
 
             services.AddHealthChecks()
                 .AddMongoDb(

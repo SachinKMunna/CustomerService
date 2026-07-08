@@ -1,7 +1,7 @@
-using Customer.WebApi.DataStore;
 using DomainModel = Customer.WebApi.Domain.Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Customer.WebApi.DataStore;
 
 namespace Customer.WebApi.Infrastructure.DataStore.Mongo;
 
