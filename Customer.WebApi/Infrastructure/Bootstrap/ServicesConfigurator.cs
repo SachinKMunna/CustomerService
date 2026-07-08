@@ -1,6 +1,7 @@
 using Customer.WebApi.DataStore;
 using Customer.WebApi.Domain.Services;
 using Customer.WebApi.Infrastructure.DataStore.Mongo;
+using Customer.WebApi.Infrastructure.Mappers;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 
@@ -26,8 +27,13 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
 
             services.AddSingleton<MongoDbContext>();
 
+            services.AddSingleton<IMappingCoordinator, MappingCoordinator>();
+
             services.AddScoped<ICustomerDataProvider, MongoCustomerDataProvider>();
             services.AddScoped<ICustomerService, CustomerService>();
+
+            services.AddScoped<ICartDataProvider, MongoCartDataProvider>();
+            services.AddScoped<ICartService, CartService>();
 
             services.AddHealthChecks()
                 .AddMongoDb(
