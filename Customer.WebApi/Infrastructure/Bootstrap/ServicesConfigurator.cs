@@ -11,12 +11,11 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
     {
         public const string MongoHealthCheckName = "mongodb";
 
-        public static IServiceCollection AddServices(this IServiceCollection services, ISettingsProvider settings)
+        public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddSingleton(settings);
-
-            services.AddSingleton<IMongoClient>(_ =>
+            services.AddSingleton<IMongoClient>(sp =>
             {
+                var settings = sp.GetRequiredService<ISettingsProvider>();
                 var clientSettings = MongoClientSettings.FromConnectionString(settings.Mongo.ConnectionString);
                 // Fail fast instead of the 30s default when the server is unreachable.
                 clientSettings.ServerSelectionTimeout = TimeSpan.FromSeconds(5);
@@ -28,7 +27,7 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             services.AddHealthChecks()
                 .AddMongoDb(
                     clientFactory: sp => sp.GetRequiredService<IMongoClient>(),
-                    databaseNameFactory: _ => settings.Mongo.Database,
+                    databaseNameFactory: sp => sp.GetRequiredService<ISettingsProvider>().Mongo.Database,
                     name: MongoHealthCheckName,
                     tags: ["ready"]);
 

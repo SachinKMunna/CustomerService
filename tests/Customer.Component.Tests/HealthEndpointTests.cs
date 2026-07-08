@@ -1,0 +1,25 @@
+using System.Net;
+using Customer.Tests.Utilities;
+
+namespace Customer.Component.Tests
+{
+    /// <summary>
+    /// PR-0 smoke test: the host boots and liveness responds without external dependencies.
+    /// </summary>
+    public class HealthEndpointTests : IClassFixture<CustomerApiFactory>
+    {
+        private readonly CustomerApiFactory _factory;
+
+        public HealthEndpointTests(CustomerApiFactory factory) => _factory = factory;
+
+        [Fact]
+        public async Task Health_endpoint_returns_ok()
+        {
+            var client = _factory.CreateClient();
+
+            var response = await client.GetAsync("/health");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+    }
+}

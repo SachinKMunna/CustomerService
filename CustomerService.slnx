@@ -1,8 +1,8 @@
 <Solution>
   <Folder Name="/tests/">
+    <Project Path="tests/Customer.Component.Tests/Customer.Component.Tests.csproj" />
     <Project Path="tests/Customer.Tests.Utilities/Customer.Tests.Utilities.csproj" />
     <Project Path="tests/Customer.Unit.Tests/Customer.Unit.Tests.csproj" />
-    <Project Path="tests/Customer.WebApi.Integration.Tests/Customer.WebApi.Integration.Tests.csproj" />
   </Folder>
   <Project Path="Customer.Model/Customer.Model.csproj" />
   <Project Path="Customer.WebApi/Customer.WebApi.csproj" />
