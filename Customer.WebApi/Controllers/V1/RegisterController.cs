@@ -49,5 +49,48 @@ namespace Customer.WebApi.Controllers.V1
 
             return CreatedAtAction(nameof(Register), response);
         }
+
+        [HttpPost("bulk")]
+        public async Task<IActionResult> RegisterBulk(
+            [FromBody] RegisterCustomersRequest request,
+            CancellationToken cancellationToken)
+        {
+            ArgumentNullException.ThrowIfNull(request);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var customersToCreate = request.Customers!
+                .Select(req => new DomainModel.Customer
+                {
+                    Email = req.Email?.ToLowerInvariant(),
+                    Name = req.Name!,
+                    Phone = req.Phone!
+                })
+                .ToList();
+
+            var createdCustomers = await _customerDataProvider.CreateBulkAsync(customersToCreate, cancellationToken);
+
+            var responses = createdCustomers
+                .Select(c => new CustomerResponse
+                {
+                    Id = c.Id,
+                    Email = c.Email,
+                    Name = c.Name,
+                    Phone = c.Phone,
+                    CreatedAt = c.CreatedAt
+                })
+                .ToList();
+
+            var bulkResponse = new RegisterCustomersResponse
+            {
+                Customers = responses,
+                TotalRegistered = responses.Count
+            };
+
+            return CreatedAtAction(nameof(RegisterBulk), bulkResponse);
+        }
     }
 }

@@ -22,6 +22,20 @@ public class MongoCustomerDataProvider : ICustomerDataProvider
         return customer;
     }
 
+    public async Task<IEnumerable<DomainModel.Customer>> CreateBulkAsync(IEnumerable<DomainModel.Customer> customers, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(customers);
+        var customerList = customers.ToList();
+        
+        if (customerList.Count == 0)
+        {
+            return Enumerable.Empty<DomainModel.Customer>();
+        }
+
+        await _collection.InsertManyAsync(customerList, cancellationToken: cancellationToken);
+        return customerList;
+    }
+
     public async Task<DomainModel.Customer?> GetByIdAsync(string id, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(id);
