@@ -20,10 +20,14 @@ namespace Customer.WebApi.Infrastructure.Auth
 
         public bool IsAuthenticated => User?.Identity?.IsAuthenticated ?? false;
 
-        public string? ExternalAuthId => User?.FindFirst("sub")?.Value
-            ?? User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        public string? ExternalAuthId => User?.Identity?.IsAuthenticated == true
+            ? User.FindFirst("sub")?.Value
+                ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+            : null;
 
-        public string? Email => User?.FindFirst("email")?.Value
-            ?? User?.FindFirst(ClaimTypes.Email)?.Value;
+        public string? Email => User?.Identity?.IsAuthenticated == true
+            ? User.FindFirst("email")?.Value
+                ?? User.FindFirst(ClaimTypes.Email)?.Value
+            : null;
     }
 }

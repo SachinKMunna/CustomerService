@@ -14,14 +14,18 @@ namespace Customer.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            ISettingsProvider settings = new ApplicationSettingsProvider(builder.Configuration);
-
             builder.Host.UseSerilog((context, config) =>
                 config.ReadFrom.Configuration(context.Configuration).WriteTo.Console());
 
+            // ISettingsProvider is registered as a lazy factory so configuration sources
+            // added by WebApplicationFactory (test overrides) are fully merged before
+            // settings are first read.
+            builder.Services.AddSingleton<ISettingsProvider>(
+                sp => new ApplicationSettingsProvider(sp.GetRequiredService<IConfiguration>()));
+
             builder.Services
-                .AddServices(settings)
-                .AddJwtAuthentication(settings)
+                .AddServices()
+                .AddJwtAuthentication()
                 .AddApiDocumentation();
             builder.Services.AddControllers();
 
