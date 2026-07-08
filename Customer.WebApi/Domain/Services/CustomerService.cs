@@ -1,6 +1,7 @@
 using Customer.Model.Api.V1.Request;
 using Customer.Model.Api.V1.Response;
 using Customer.WebApi.DataStore;
+using Customer.WebApi.Infrastructure.Mappers;
 using DomainModel = Customer.WebApi.Domain.Model;
 
 namespace Customer.WebApi.Domain.Services;
@@ -8,9 +9,13 @@ namespace Customer.WebApi.Domain.Services;
 public class CustomerService : ICustomerService
 {
     private readonly ICustomerDataProvider _customerDataProvider;
+    private readonly IMappingCoordinator _mappingCoordinator;
 
-    public CustomerService(ICustomerDataProvider customerDataProvider)
-        => _customerDataProvider = customerDataProvider;
+    public CustomerService(ICustomerDataProvider customerDataProvider, IMappingCoordinator mappingCoordinator)
+    {
+        _customerDataProvider = customerDataProvider;
+        _mappingCoordinator = mappingCoordinator;
+    }
 
     public async Task<CustomerResponse> RegisterAsync(
         RegisterCustomerRequest request,
@@ -18,16 +23,11 @@ public class CustomerService : ICustomerService
     {
         ArgumentNullException.ThrowIfNull(request);
 
-        var customer = new DomainModel.Customer
-        {
-            Email = request.Email?.ToLowerInvariant(),
-            Name = request.Name!,
-            Phone = request.Phone!
-        };
+        var customer = _mappingCoordinator.Map<RegisterCustomerRequest, DomainModel.Customer>(request);
 
         var created = await _customerDataProvider.CreateAsync(customer, cancellationToken);
 
-        return MapToResponse(created);
+        return _mappingCoordinator.Map<DomainModel.Customer, CustomerResponse>(created);
     }
 
     public async Task<RegisterCustomersResponse> RegisterBulkAsync(
@@ -36,18 +36,11 @@ public class CustomerService : ICustomerService
     {
         ArgumentNullException.ThrowIfNull(request);
 
-        var customers = request.Customers!
-            .Select(req => new DomainModel.Customer
-            {
-                Email = req.Email?.ToLowerInvariant(),
-                Name = req.Name!,
-                Phone = req.Phone!
-            })
-            .ToList();
+        var customers = _mappingCoordinator.Map<RegisterCustomerRequest, DomainModel.Customer>(request.Customers!).ToList();
 
         var created = await _customerDataProvider.CreateBulkAsync(customers, cancellationToken);
 
-        var responses = created.Select(MapToResponse).ToList();
+        var responses = _mappingCoordinator.Map<DomainModel.Customer, CustomerResponse>(created).ToList();
 
         return new RegisterCustomersResponse
         {
@@ -55,14 +48,4 @@ public class CustomerService : ICustomerService
             TotalRegistered = responses.Count
         };
     }
-
-    private static CustomerResponse MapToResponse(DomainModel.Customer customer) =>
-        new()
-        {
-            Id = customer.Id,
-            Email = customer.Email,
-            Name = customer.Name,
-            Phone = customer.Phone,
-            CreatedAt = customer.CreatedAt
-        };
 }
