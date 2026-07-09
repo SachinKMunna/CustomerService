@@ -39,6 +39,12 @@ public class MappingCoordinator : IMappingCoordinator
         // Cart: Domain to Controller mappings
         cfg.MapCartDomainToResponse();
 
+        // Controller to Domain mappings
+        cfg.MapRegisterRequestToDomain();
+
+        // Domain to Controller mappings
+        cfg.MapDomainToCustomerResponse();
+
         return cfg;
     }
 

@@ -5,7 +5,7 @@ using DomainModel = Customer.WebApi.Domain.Model;
 namespace Customer.WebApi.Infrastructure.Mappers;
 
 /// <summary>
-/// Provides mapping configuration from controller customer request models to domain models.
+/// Provides mapping configuration from controller request models to domain models.
 /// </summary>
 public static class ControllerToDomainMapper
 {
@@ -16,6 +16,11 @@ public static class ControllerToDomainMapper
     public static void MapRegisterRequestToDomain(this IMapperConfigurationExpression cfg)
     {
         cfg.CreateMap<RegisterCustomerRequest, DomainModel.Customer>()
-            .ForMember(dest => dest.Email, options => options.MapFrom(src => src.Email != null ? src.Email.ToLower() : null));
+            .ForMember(dest => dest.Email, options => options.MapFrom(src => src.Email != null ? src.Email.ToLower() : null))
+            .ForMember(customer => customer.Id, options => options.Ignore())
+            .ForMember(customer => customer.ExternalAuthId, options => options.Ignore())
+            .ForMember(customer => customer.CreatedAt, options => options.Ignore())
+            .ForMember(customer => customer.UpdatedAt, options => options.Ignore())
+            .ForMember(customer => customer.Email, options => options.MapFrom(src => src.Email != null ? src.Email.ToLowerInvariant() : null));
     }
 }

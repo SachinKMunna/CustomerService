@@ -5,7 +5,7 @@ using DomainModel = Customer.WebApi.Domain.Model;
 namespace Customer.WebApi.Infrastructure.Mappers;
 
 /// <summary>
-/// Provides mapping configuration from domain models to controller customer response models.
+/// Provides mapping configuration from domain models to controller response models.
 /// </summary>
 public static class DomainToControllerMapper
 {
