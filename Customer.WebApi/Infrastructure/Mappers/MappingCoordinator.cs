@@ -27,6 +27,18 @@ public class MappingCoordinator : IMappingCoordinator
     /// </summary>
     protected virtual IMapperConfigurationExpression ConfigureMapping(IMapperConfigurationExpression cfg)
     {
+        // Customer: Controller to Domain mappings
+        cfg.MapRegisterRequestToDomain();
+
+        // Customer: Domain to Controller mappings
+        cfg.MapDomainToCustomerResponse();
+
+        // Cart: Controller to Domain mappings
+        cfg.MapAddCartItemRequestToDomain();
+
+        // Cart: Domain to Controller mappings
+        cfg.MapCartDomainToResponse();
+
         // Controller to Domain mappings
         cfg.MapRegisterRequestToDomain();
 

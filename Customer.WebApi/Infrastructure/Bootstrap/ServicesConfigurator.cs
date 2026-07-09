@@ -28,8 +28,12 @@ namespace Customer.WebApi.Infrastructure.Bootstrap
             services.AddSingleton<MongoDbContext>();
 
             services.AddSingleton<IMappingCoordinator, MappingCoordinator>();
+
             services.AddScoped<ICustomerDataProvider, MongoCustomerDataProvider>();
             services.AddScoped<ICustomerService, CustomerService>();
+
+            services.AddScoped<ICartDataProvider, MongoCartDataProvider>();
+            services.AddScoped<ICartService, CartService>();
 
             services.AddHealthChecks()
                 .AddMongoDb(

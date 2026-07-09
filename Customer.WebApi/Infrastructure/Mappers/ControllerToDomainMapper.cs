@@ -16,6 +16,7 @@ public static class ControllerToDomainMapper
     public static void MapRegisterRequestToDomain(this IMapperConfigurationExpression cfg)
     {
         cfg.CreateMap<RegisterCustomerRequest, DomainModel.Customer>()
+            .ForMember(dest => dest.Email, options => options.MapFrom(src => src.Email != null ? src.Email.ToLower() : null))
             .ForMember(customer => customer.Id, options => options.Ignore())
             .ForMember(customer => customer.ExternalAuthId, options => options.Ignore())
             .ForMember(customer => customer.CreatedAt, options => options.Ignore())
